@@ -1,5 +1,6 @@
 #pragma once
 #include "FileSystem.h"
+#include "FSUtils.h"
 
 class FSBuilder
 {
