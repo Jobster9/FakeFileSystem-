@@ -1,3 +1,0 @@
-command desc strings, have as non-const & declared in constructor for each command. 
-currently each command doesnt have constructor, does this mean life-cycle affected / default constructor made? 
-check with claude prior to defining constructors for each command 
