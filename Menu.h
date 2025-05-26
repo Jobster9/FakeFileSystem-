@@ -13,6 +13,7 @@ class Menu
 		static void runMenuInterface();
 		static string promptUserForCommand();
 		static void processCommand(string& command);
+        static const map<string, shared_ptr<Command>>& getCommands() { return commands; }
 	private:
 		static map<string, shared_ptr<Command>> commands;
 
@@ -25,6 +26,6 @@ class Menu
         static const string DEL_COMMAND;
         static const string SORTNAME_COMMAND;
         static const string SORTSIZE_COMMAND;
-        static const string MORE_COMMANDS_COMMAND;
+        static const string HELP_COMMAND;
         static const string RENAME_COMMAND;
 };

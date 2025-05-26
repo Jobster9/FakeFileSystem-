@@ -105,7 +105,7 @@ int Directory::arrangeSubDirectories() {
             {
                 contents.swap(currentIndex, nextDirIndex);
             }            
-            nextDirIndex++;  // Increment the index for the next directory
+            nextDirIndex++;  //Increment the index for the next directory
         }
         currentIndex++;
     }

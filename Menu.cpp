@@ -10,7 +10,7 @@ const string Menu::CD_COMMAND = "cd";
 const string Menu::DEL_COMMAND = "del";
 const string Menu::SORTNAME_COMMAND = "sortname";
 const string Menu::SORTSIZE_COMMAND = "sortsize";
-const string Menu::MORE_COMMANDS_COMMAND = "commands";
+const string Menu::HELP_COMMAND = "help";
 const string Menu::RENAME_COMMAND = "rename";
 
 
@@ -24,7 +24,7 @@ map<string, shared_ptr<Command>> Menu::commands =
 	{ MKFILE_COMMAND, make_shared<Mkfile>()},
 	{ DEL_COMMAND, make_shared<Del>()},
 	{ EXIT_COMMAND, make_shared<Exit>()},
-	{ MORE_COMMANDS_COMMAND, make_shared<MoreCommands>()},
+	{ HELP_COMMAND, make_shared<Help>()},
 	{ RENAME_COMMAND, make_shared<Rename>()},
 	
 		
@@ -92,4 +92,20 @@ void Menu::processCommand(string& input)
     }
 
         command->execute(arguments);
+}
+
+void Help::execute(const vector<string>& args)
+{
+    cout << "Available Commands:" << endl;
+    cout << "==================" << endl;
+
+    const auto& commandsMap = Menu::getCommands();
+
+    for (const auto& pair : commandsMap)
+    {
+        shared_ptr<Command> cmd = pair.second;
+        cout << "Command: " << cmd->getCommandName()
+            << " | Parameters: " << cmd->getParameters()
+            << " | Description: " << cmd->getDescription() << endl;
+    }
 }
